@@ -41,7 +41,7 @@ export const useVoiceRecognition =()=>{
     // erase somthing if we had before 
     resetState();
     try{
-      console.log("Debugger started ",Voice);
+      console.log("started voice recognition");
        await Voice.start('en-US');
        
     }
@@ -57,6 +57,8 @@ export const useVoiceRecognition =()=>{
   },[resetState])
 
   const stopRecognizing = useCallback(async() =>{
+
+    console.log("Stop voice recognition");
     try{
        await Voice.stop();
     }
@@ -133,7 +135,7 @@ export const useVoiceRecognition =()=>{
      }
 
      return()=>{
-        Voice.destroy().then(Voice.removeAllListeners)
+        //Voice.destroy().then(Voice.removeAllListeners)
      }
 
   },[])
